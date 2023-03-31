@@ -1,4 +1,4 @@
-.card-container {
+.postcard {
   box-sizing: border-box;
   padding: 1rem;
   margin: 20px;
@@ -8,27 +8,33 @@
   0 8px 16px -8px rgba(0, 0, 0, 0.3),
   0 -6px 16px -6px rgba(0, 0, 0, 0.025);
   transition: 0.2s;
+  
 }
 
-.card-container:hover {
+.postcard:hover {
   scale: 102%;
   z-index: 100;
 }
 
-.card-container img {
-  height: 200px;
+.postcard img {
+  width: 100%;
 }
 
-.card-container .card-title {
+.postcard .card-title {
   font-weight: 600;
   font-size: 20px;
 }
 
-.card-container .card-body {
+.postcard .card-body {
   font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
-.card-container .card-bottom span {
+.postcard .card-bottom span {
   display: flex;
   font-size: 15px;
   justify-content: end;

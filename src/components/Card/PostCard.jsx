@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../assets/Card/PostCard.css'
+import '../../assets/components/Card/PostCard.css'
 
 const PostCard = ( {id, title, date, preview, thumbnail, replyCount} ) => {
   return (
-    <div id={id} className='card-container'>
+    <div id={id} className='postcard'>
       <img src={thumbnail} alt={title} />
       <div className='card-title'>{title}</div>
       <div className='card-body'>{preview}</div>
