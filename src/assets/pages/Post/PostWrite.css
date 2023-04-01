@@ -1,0 +1,9 @@
+.edtior-container {
+  position: absolute;
+  top: 30px;
+  left: 220px;
+  width: calc(100% - 240px);
+}
+.edtior-container h2 {
+  margin-top: 0;
+}

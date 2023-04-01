@@ -1,17 +1,7 @@
-.post-container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 100vh;
-}
-
 .content {
   position: absolute;
   top: 0;
-  left: 220px;
-  width: calc(100% - 220px);
+  left: 55%;
   height: 100%;
   display: flex;
   justify-content: center;

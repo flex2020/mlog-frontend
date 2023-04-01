@@ -6,12 +6,13 @@ import Masonry from 'react-masonry-css';
 import SideBar from '../../components/Navigate/SideBar';
 import Loader from '../../components/Utils/Loader';
 import NotFound from '../../components/Utils/NotFound';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [posts, setPosts]= useState([]);
   const [currentCategory, setCurrentCategory] = useState(0);
   const [prepared, setPrepared] = useState(false);
-
+  const location = useLocation();
   const POST_API= process.env.REACT_APP_POST_API ?? '';
   
   const selectCategoryHandler = (category) => {
@@ -21,6 +22,7 @@ const Home = () => {
   useEffect(() => {
     const getPosts = async() => {
       setPrepared(false);
+      console.log(`Home category: ${currentCategory}`);
       const { data } = await axios.get(`${POST_API}?category=${currentCategory}`);
       console.log(`${POST_API}?category=${currentCategory}`);
       setPosts(data);
@@ -30,8 +32,8 @@ const Home = () => {
   }, [currentCategory]);
 
   return (
-    <div className='post-container'>
-      <SideBar categoryHandler={selectCategoryHandler} category={currentCategory} />
+    <div className='container'>
+      <SideBar categoryHandler={selectCategoryHandler} page='home' />
       <div className={prepared ? 'prepared-content' : 'content'}>
       {prepared ? (
         (posts.length === 0) ?

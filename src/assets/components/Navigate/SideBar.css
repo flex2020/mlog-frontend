@@ -51,3 +51,8 @@
 .sidebar li.active a {
   color: white;
 }
+
+.sidebar-control {
+  position: absolute;
+  bottom: 20px;
+}
