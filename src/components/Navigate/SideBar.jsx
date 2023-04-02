@@ -19,9 +19,9 @@ const SideBar = ( { categoryHandler, page  } ) => {
   return (
     <div className="sidebar">
       <div className='sidebar-container'>
-        <Link to={'/'} 
+        <Link to={'/post'} 
         onClick={() => {
-         categoryHandler(0);
+          if(categoryHandler) categoryHandler(0);
           setOption(0);
         }}>Mlog</Link>
       </div>
@@ -31,16 +31,16 @@ const SideBar = ( { categoryHandler, page  } ) => {
             categoryHandler(0);
             setOption(0);
             }}>
-          <Link to={'/'}>전체 보기</Link>
+          <Link to={'/post'}>전체 보기</Link>
         </li>
         {categories.map((categoryObject) => {
           return (
             <li key={categoryObject.id} className={option === categoryObject.id ? 'active' : ''} 
                 onClick={() => {
-                  categoryHandler(categoryObject.id);
+                  if(categoryHandler) categoryHandler(categoryObject.id);
                   setOption(categoryObject.id);
                 }}>
-              <Link to={'/'}>{categoryObject.categoryName}</Link>
+              <Link to={'/post'}>{categoryObject.categoryName}</Link>
             </li>
           );
         })}
@@ -49,7 +49,7 @@ const SideBar = ( { categoryHandler, page  } ) => {
         <li className={option === -1 ? 'active' : ''}>
           <Link 
             
-            to={'/write'}
+            to={'/post/write'}
             onClick={() => {
               setOption(-1);
             }}>포스트 작성</Link>

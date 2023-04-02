@@ -3,11 +3,11 @@ import Editor from "@uiw/react-md-editor";
 
 
 const MDEditor = () => {
-  const [value, setValue] = useState('');
+  const [content, setContent] = useState('');
 
   return (
     <div>
-      <Editor value={value} height={800} onChange={(v) => setValue(v)} />
+      <Editor value={content} height={650} onChange={(c) => setContent(c)} />
     </div>
   );
 }

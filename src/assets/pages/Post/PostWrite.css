@@ -1,9 +1,13 @@
 .edtior-container {
-  position: absolute;
-  top: 30px;
-  left: 220px;
-  width: calc(100% - 240px);
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 30px;
 }
 .edtior-container h2 {
   margin-top: 0;
+}
+
+.btn-container {
+  margin: 30px;
 }

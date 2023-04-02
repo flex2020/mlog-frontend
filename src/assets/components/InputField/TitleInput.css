@@ -1,0 +1,9 @@
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 3rem;
+  font-size: 3rem;
+  border: none;
+  font-weight: 600;
+  outline: none;
+}
