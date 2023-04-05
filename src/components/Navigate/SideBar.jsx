@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../../assets/components/Navigate/SideBar.css'
 
-const SideBar = ( { categoryHandler, page  } ) => {
+const SideBar = ( { categoryHandler } ) => {
   const [categories, setCategories] = useState([]);
   const [option, setOption] = useState(0);
   const CATEGORY_API= process.env.REACT_APP_CATEGORY_API ?? '';
@@ -15,7 +15,6 @@ const SideBar = ( { categoryHandler, page  } ) => {
     }
     getCategories();
   }, []);
-  console.log(`page: ${page}, categoryHandler: ${categoryHandler}`);
   return (
     <div className="sidebar">
       <div className='sidebar-container'>

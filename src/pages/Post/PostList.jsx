@@ -20,9 +20,7 @@ const PostList = () => {
   useEffect(() => {
     const getPosts = async() => {
       setPrepared(false);
-      console.log(`Home category: ${currentCategory}`);
       const { data } = await axios.get(`${POST_API}?category=${currentCategory}`);
-      console.log(`${POST_API}?category=${currentCategory}`);
       setPosts(data);
       setPrepared(true);
     }
@@ -31,7 +29,7 @@ const PostList = () => {
 
   return (
     <div className='container'>
-      <SideBar categoryHandler={selectCategoryHandler} page='home' />
+      <SideBar categoryHandler={selectCategoryHandler} />
       <div className={prepared ? 'prepared-content' : 'content'}>
       {prepared ? (
         (posts.length === 0) ?
