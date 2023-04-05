@@ -7,16 +7,14 @@ import axios from "axios";
 import TitleInput from '../../components/InputField/TitleInput';
 import CategorySelect from '../../components/InputField/CategorySelect';
 import DefaultButton from '../../components/Button/DefaultButton';
-import Dropzone from "react-dropzone";
 
 const PostWrite = () => {
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(1);
   const [categories, setCategories] = useState([]);
-  const [files, setFiles] = useState([]);
   const CATEGORY_API= process.env.REACT_APP_CATEGORY_API ?? '';
-  const FILE_API= process.env.REACT_APP_FILE_API ?? '';
+
   const navigate = useNavigate();
 
   
@@ -25,16 +23,6 @@ const PostWrite = () => {
   }
   const changeCategoryHandler = (event) => {
     setSelectedCategory(event.target.value);
-  }
-  const uploadHandler = async (file) => {
-    const formData = new FormData();
-    formData.append('file', file[0]);
-    const data = {
-      file: formData
-    }
-    const response = await axios.post(FILE_API, data);
-    console.log(response);
-    return response.uuid;
   }
 
   const submitHandler = (event) => {
