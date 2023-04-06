@@ -1,0 +1,17 @@
+.view-background {
+  background-color:rgb(252, 252, 252);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.viewer-container {
+  background-color: white;
+  padding: 0 50px 50px 50px;
+  width: 50%;
+}
+
+.viewer-container .view-title {
+  border-bottom: 1px solid black;
+  margin: 0 0 10px 0;
+  padding: 10px 0;
+}
