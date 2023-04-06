@@ -28,13 +28,25 @@ const PostWrite = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     const previewContent = marked(content).replace(/<[^>]*>?/g, '');
+    const regex = /!\[.*\]\((.*)\)/g;
+    const fileList = [];
+
+    let file;
+    const exts = [];
+    while ((file = regex.exec(content)) !== null) {
+      const uuid = file[1].substring(file[1].lastIndexOf('/') + 1, file[1].lastIndexOf('.'));
+      const ext = file[1].substring(file[1].lastIndexOf('.') + 1);
+      exts.push(ext);
+      fileList.push(uuid);
+    }
 
     const data = {
       categoryId: selectedCategory,
       title: title,
       content: content,
       previewContent: previewContent,
-      fileList: [],
+      thumbnail: fileList.length > 0 ? `${fileList[0]}.${exts[0]}` : null,
+      fileList: fileList,
       visible: true,
     }
     axios.post(process.env.REACT_APP_POST_API, data)

@@ -4,7 +4,7 @@ import '../../assets/components/Card/PostCard.css'
 const PostCard = ( {id, title, date, preview, thumbnail, replyCount} ) => {
   return (
     <div id={id} className='postcard'>
-      <img src={thumbnail} alt={title} />
+      <img src={`/files/original/${thumbnail}`} alt={title} />
       <div className='card-title'>{title}</div>
       <div className='card-body'>{preview}</div>
       <div className='card-bottom'>
