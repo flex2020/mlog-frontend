@@ -27,7 +27,7 @@ const PostWrite = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const previewContent = marked(content).replace(/<[^>]*>?/g, '');
+    const previewContent = marked(content).replace(/<[^>]*>?/g, '').substring(0, 200);
     const regex = /!\[.*\]\((.*)\)/g;
     const fileList = [];
 
