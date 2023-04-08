@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MDEditor from '@uiw/react-md-editor';
 import '../../assets/pages/Post/PostView.css';
-import Reply from '../../components/InputField/Reply';
+import ReplyCard from '../../components/Card/ReplyCard';
+import getDate from '../../utils/getDate';
+import ReplyWrite from '../../components/InputField/ReplyWrite';
 
 const PostView = () => {
   const { id } = useParams();
@@ -13,9 +15,7 @@ const PostView = () => {
   useEffect(() => {
     const getPost = async () => {
       const { data } = await axios.get(`${POST_API}/${id}`);
-      const date = new Date(data.postedDate);
-      console.log(date);
-      const pdate = `${date.getFullYear()}년 ${date.getMonth()+1}월 ${date.getDate()}일 ${date.getHours()}:${date.getMinutes()}`;
+      const pdate = getDate(data.postedDate);
       setPost({...data, postedDate: pdate});
     };
     getPost();
@@ -41,7 +41,10 @@ const PostView = () => {
         <hr />
         <div className='reply-container'>
           <span className='reply-count'>{post.replyList.length}개의 댓글</span>
-          <Reply />
+          <ReplyWrite />
+          {post.replyList.map((reply) => {
+            return (<ReplyCard id={reply.replyId} writer={reply.writer} content={reply.content} date={reply.date} toReply={reply.toReply} visible={reply.visible} />)
+          })}
         </div>
       </div>
     </div>

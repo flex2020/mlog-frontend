@@ -8,10 +8,15 @@
   width: 50%;
 }
 
+.wmde-markdown.viewer {
+  margin-bottom: 8rem;
+}
+
 .viewer-container .view-title {
   margin: 4em 0 10px 0;
   padding: 10px 0;
-  font-size: 3.25rem;
+  font-size: 3.75rem;
+  word-break: keep-all;
 }
 
 .viewer-container .post-data, .viewer-container .category-container {
@@ -20,10 +25,7 @@
 
 .viewer-container .post-data .writer, .viewer-container .post-data .dot {
   margin-right: 10px;
-}
-
-.viewer-container .post-data .writer {
-  font-size: 18px;
+    font-size: 18px;
   font-weight: bold;
 }
 
@@ -38,10 +40,6 @@
   background-color: #85dae6;
   color: rgb(55, 57, 75);
   margin-left: 0.5rem;
-}
-
-.viewer-container hr {
-  margin-top: 4em;
 }
 
 .viewer-container .reply-container {
