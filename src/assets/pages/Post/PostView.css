@@ -1,17 +1,67 @@
 .view-background {
-  background-color:rgb(252, 252, 252);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .viewer-container {
-  background-color: white;
   padding: 0 50px 50px 50px;
   width: 50%;
 }
 
 .viewer-container .view-title {
-  border-bottom: 1px solid black;
-  margin: 0 0 10px 0;
+  margin: 4em 0 10px 0;
   padding: 10px 0;
+  font-size: 3.25rem;
+}
+
+.viewer-container .post-data, .viewer-container .category-container {
+  margin-bottom: 50px;
+}
+
+.viewer-container .post-data .writer, .viewer-container .post-data .dot {
+  margin-right: 10px;
+}
+
+.viewer-container .post-data .writer {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.viewer-container .date {
+  font-size: 18px;
+  color:rgb(94, 94, 94)
+}
+
+.viewer-container .category {
+  padding: 5px 18px;
+  border-radius: 1.5rem;
+  background-color: #85dae6;
+  color: rgb(55, 57, 75);
+  margin-left: 0.5rem;
+}
+
+.viewer-container hr {
+  margin-top: 4em;
+}
+
+.viewer-container .reply-container {
+
+}
+.viewer-container .reply-count {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1090px) {
+  .viewer-container {
+    padding: 0 50px 50px 50px;
+    width: 95%;
+  }
+
+  .viewer-container .view-title {
+    margin: 2em 0 10px 0;
+    padding: 10px 0;
+    font-size: 3.25rem;
+  }
 }
