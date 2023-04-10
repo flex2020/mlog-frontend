@@ -2,6 +2,7 @@ import React from 'react';
 import '../../assets/components/Card/PostCard.css'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import getDate from '../../utils/getDate';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -10,6 +11,7 @@ const StyledLink = styled(Link)`
 
 const PostCard = ( {id, title, date, preview, thumbnail, replyCount} ) => {
   const link = `/post/${id}`;
+  const pdate = getDate(date);
   return (
     <StyledLink to={link}>
       <div id={id} className='postcard'>
@@ -18,7 +20,7 @@ const PostCard = ( {id, title, date, preview, thumbnail, replyCount} ) => {
         <div className='card-body'>{preview}</div>
         <div className='card-bottom'>
           <span>{replyCount}개의 댓글</span>
-          <span>작성 날짜: {date}</span>
+          <span>작성 날짜: {pdate}</span>
         </div>
       </div>
     </StyledLink>
