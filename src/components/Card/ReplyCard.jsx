@@ -13,9 +13,7 @@ const ReplyCard = ({id, writer, content, date, toReply, visible}) => {
 
       <div className='reply-content'>{content}</div>
       <div className='write-subreply'>
-        <button>
-          답글 작성
-        </button>
+        <button>답글 작성</button>
       </div>
     </div>
   );
