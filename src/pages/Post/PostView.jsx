@@ -68,6 +68,7 @@ const PostView = () => {
         </div>
         <div className='category-container'>
           <span className='category'>{post.category}</span>
+          <span className='delete-btn'>삭제</span>
         </div>
         <MDEditor.Markdown 
         className='viewer'

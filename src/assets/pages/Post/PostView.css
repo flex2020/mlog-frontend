@@ -42,6 +42,12 @@
   margin-left: 0.5rem;
 }
 
+.delete-btn {
+  font-size: 15px;
+  margin-left: 85%;
+  color: #afafaf;
+}
+
 .viewer-container .reply-container {
 
 }
