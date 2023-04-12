@@ -78,7 +78,26 @@ const PostView = () => {
           <span className='reply-count'>{post.replyList.length}개의 댓글</span>
           <ReplyWrite reply={reply} setReply={setReply} submitHandler={submitHandler} />
           {post.replyList.map((reply) => {
-            return (<ReplyCard replyId={reply.replyId} writer={reply.writer} content={reply.content} date={reply.date} toReply={reply.toReply} visible={reply.visible} setPost={setPost} />)
+            if (reply.toReply === -1)
+              return (
+              <ReplyCard 
+                replyId={reply.replyId} 
+                writer={reply.writer} 
+                content={reply.content} 
+                date={reply.date} 
+                toReply={reply.toReply} 
+                visible={reply.visible} 
+                setPost={setPost} />)
+            else return (
+              <ReplyCard 
+                replyId={reply.replyId} 
+                writer={reply.writer} 
+                content={reply.content} 
+                date={reply.date} 
+                toReply={reply.toReply} 
+                visible={reply.visible} 
+                setPost={setPost} />
+            )
           })}
         </div>
       </div>
