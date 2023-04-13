@@ -77,28 +77,40 @@ const PostView = () => {
         <div className='reply-container'>
           <span className='reply-count'>{post.replyList.length}개의 댓글</span>
           <ReplyWrite reply={reply} setReply={setReply} submitHandler={submitHandler} />
-          {post.replyList.map((reply) => {
-            if (reply.toReply === -1)
-              return (
-              <ReplyCard 
-                replyId={reply.replyId} 
-                writer={reply.writer} 
-                content={reply.content} 
-                date={reply.date} 
-                toReply={reply.toReply} 
-                visible={reply.visible} 
-                setPost={setPost} />)
-            else return (
-              <ReplyCard 
-                replyId={reply.replyId} 
-                writer={reply.writer} 
-                content={reply.content} 
-                date={reply.date} 
-                toReply={reply.toReply} 
-                visible={reply.visible} 
-                setPost={setPost} />
-            )
-          })}
+          {post.replyList.map((reply, index) => {
+  if (reply.toReply === -1) {
+    return (
+      <ReplyCard
+        replyId={reply.replyId}
+        writer={reply.writer}
+        content={reply.content}
+        date={reply.date}
+        toReply={reply.toReply}
+        visible={reply.visible}
+        setPost={setPost}
+        key={reply.replyId}
+      >
+        {post.replyList.map((reply2) => {
+          if (reply2.toReply === reply.replyId) {
+            console.log(reply, reply2);
+              <ReplyCard
+                replyId={reply2.replyId}
+                writer={reply2.writer}
+                content={reply2.content}
+                date={reply2.date}
+                toReply={reply2.toReply}
+                visible={reply2.visible}
+                setPost={setPost}
+                key={reply2.replyId}
+              />
+          }
+        })}
+      </ReplyCard>
+    );
+  } else {
+    return null;
+  }
+})}
         </div>
       </div>
     </div>
