@@ -54,7 +54,7 @@ const ReplyCard = ({replyId, writer, content, date, toReply, visible, setPost}) 
   }
 
   return (
-    <div id={id} key={id} className='reply'>
+    <div id={replyId} key={replyId} className='reply'>
       <div>
         <span className='reply-writer'>{writer}</span>
         <span className='dot'>·</span>

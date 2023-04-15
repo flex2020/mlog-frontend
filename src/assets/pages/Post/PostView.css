@@ -57,6 +57,10 @@
   margin-top: 10px;
 }
 
+.subreply-content {
+  margin-left: 5%;
+}
+
 @media screen and (max-width: 1090px) {
   .viewer-container {
     padding: 0 50px 50px 50px;

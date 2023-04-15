@@ -80,33 +80,40 @@ const PostView = () => {
           {post.replyList.map((reply, index) => {
   if (reply.toReply === -1) {
     return (
-      <ReplyCard
-        replyId={reply.replyId}
-        writer={reply.writer}
-        content={reply.content}
-        date={reply.date}
-        toReply={reply.toReply}
-        visible={reply.visible}
-        setPost={setPost}
-        key={reply.replyId}
-      >
+      <div>
+        <ReplyCard
+          replyId={reply.replyId}
+          writer={reply.writer}
+          content={reply.content}
+          date={reply.date}
+          toReply={reply.toReply}
+          visible={reply.visible}
+          setPost={setPost}
+          key={reply.replyId}
+        >
+        </ReplyCard>
         {post.replyList.map((reply2) => {
+          // 현재 reply에 대한 답글이 reply2라면
           if (reply2.toReply === reply.replyId) {
-            console.log(reply, reply2);
-              <ReplyCard
-                replyId={reply2.replyId}
-                writer={reply2.writer}
-                content={reply2.content}
-                date={reply2.date}
-                toReply={reply2.toReply}
-                visible={reply2.visible}
-                setPost={setPost}
-                key={reply2.replyId}
-              />
-          }
+            return (
+              <div className='subreply-content'>
+                <ReplyCard
+                  replyId={reply2.replyId}
+                  writer={reply2.writer}
+                  content={reply2.content}
+                  date={reply2.date}
+                  toReply={reply2.toReply}
+                  visible={reply2.visible}
+                  setPost={setPost}
+                  key={reply2.replyId}
+                />
+              </div>
+            );
+          } else return null;
         })}
-      </ReplyCard>
+      </div>
     );
+    
   } else {
     return null;
   }
