@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import MDEditor from '@uiw/react-md-editor';
 import '../../assets/pages/Post/PostView.css';
 import ReplyCard from '../../components/Card/ReplyCard';
@@ -15,6 +15,7 @@ const PostView = () => {
     password: '',
     content: '',
   });
+  const navigate = useNavigate();
   const POST_API = process.env.REACT_APP_POST_API ?? '';
 
   const submitHandler = (event) => {
@@ -43,7 +44,23 @@ const PostView = () => {
         alert('댓글 작성에 실패하였습니다.');
         console.log(`Error: ${error}`);
       })
-  }
+  };
+
+  const deleteHandler = () => {
+    if (!window.confirm('포스트를 삭제하시겠습니까?')) return;
+    const data = {
+      postId: id
+    };
+    axios.delete(`${POST_API}`, {data: data})
+    .then(response => {
+      alert('포스트가 삭제되었습니다.');
+      navigate('/post');
+    })
+    .catch(error => {
+      alert('포스트 삭제를 실패하였습니다.');
+      console.log(error);
+    });
+  };
 
   useEffect(() => {
     const getPost = async () => {
@@ -68,7 +85,7 @@ const PostView = () => {
         </div>
         <div className='category-container'>
           <span className='category'>{post.category}</span>
-          <span className='delete-btn'>삭제</span>
+          <span className='delete-btn' onClick={deleteHandler}>삭제</span>
         </div>
         <MDEditor.Markdown 
         className='viewer'
