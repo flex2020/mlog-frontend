@@ -47,6 +47,10 @@
   margin-left: 85%;
   color: #afafaf;
 }
+.delete-btn:hover {
+  cursor: pointer;
+  color: #5e5e5e;
+}
 
 .viewer-container .reply-container {
 
@@ -60,6 +64,7 @@
 .subreply-content {
   margin-left: 5%;
 }
+
 
 @media screen and (max-width: 1090px) {
   .viewer-container {
