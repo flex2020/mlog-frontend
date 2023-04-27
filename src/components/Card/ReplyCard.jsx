@@ -6,11 +6,18 @@ import { mdiPlusBoxOutline, mdiMinusBoxOutline } from '@mdi/js';
 import ReplyWrite from '../InputField/ReplyWrite';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Modal from 'react-modal';
+
 
 const ReplyCard = ({replyId, writer, content, date, toReply, visible, setPost}) => {
   const { id } = useParams();
   const POST_API = process.env.REACT_APP_POST_API ?? '';
   const [mode, setMode] = useState('close');
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const closeModal = () => setModalOpen(false);
+  const openModal = () => setModalOpen(true);
+
   const defaultReply = {
     writer: '',
     password: '',
@@ -59,6 +66,13 @@ const ReplyCard = ({replyId, writer, content, date, toReply, visible, setPost}) 
         <span className='reply-writer'>{writer}</span>
         <span className='dot'>·</span>
         <span className='reply-date'>{getDate(date)}</span>
+        <span className='reply-delete' onClick={openModal}>삭제</span>
+        <Modal isOpen={modalOpen} onRequestClose={closeModal} contentLabel='비밀번호 입력'>
+          <h2>비밀번호 입력</h2>
+          <input placeholder='비밀번호 입력' />
+          <button type='button'>입력</button>
+          <button onClick={closeModal}>닫기</button>
+        </Modal>
       </div>
 
       <div className='reply-content'>{content}</div>

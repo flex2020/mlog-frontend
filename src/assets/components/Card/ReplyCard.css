@@ -39,3 +39,13 @@
 .subreply-click:hover {
   color: #2e88c4;
 }
+
+.reply-delete {
+  font-size: 15px;
+  margin-left: 1rem;
+  color: #afafaf;
+}
+.reply-delete:hover {
+  cursor: pointer;
+  color: #5e5e5e;
+}
