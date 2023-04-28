@@ -10,3 +10,8 @@ body {
   align-items: flex-start;
   height: 100vh;
 }
+
+input {
+  border: none;
+  font-weight: 600;
+}

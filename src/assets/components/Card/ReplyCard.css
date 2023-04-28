@@ -49,3 +49,9 @@
   cursor: pointer;
   color: #5e5e5e;
 }
+
+.modal-input {
+  height: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
