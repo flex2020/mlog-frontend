@@ -1,16 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import PostList from './pages/Post/PostList';
-import './assets/common.css'
-import PostWrite from './pages/Post/PostWrite.jsx';
-import PostView from './pages/Post/PostView';
+import Home from './pages/home/Home';
+import './App.css'
 
 function App() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path='/post' element={<PostList />} />
-          <Route path='/post/write' element={<PostWrite />} />
-          <Route path='/post/:id' element={<PostView />} />
+          <Route path='/' element={<Home />} />
         </Routes>
       </BrowserRouter>
     );

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const fileUpload = async (file) => {
-  const FILE_API= process.env.REACT_APP_FILE_API ?? '';
+  const FILE_API= '/file' ?? '';
 
   const formData = new FormData();
   formData.append('file', file);
