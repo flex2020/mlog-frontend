@@ -7,6 +7,8 @@ const StyledHeader = styled.header`
   height: 270px;
 `;
 const NavBar = styled.div`
+  position: fixed;
+  width: 100vw;
   height: 35px;
   background-color: #383838;
   padding: 10px 0 10px 450px;
@@ -36,7 +38,7 @@ const NavbarLink = styled(Link)`
 `
 const Background = styled.div`
   background-color: #CAF8E2;
-  height: 215px;
+  height: 250px;
 `;
 
 const ProfileCardConatiner = styled.div`
