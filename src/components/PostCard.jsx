@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Card = styled.div`
   width: 300px;
-  height: 400px;
+  height: 405px;
   margin: 0 40px 40px 0;
   box-shadow: 0 0 2px 0;
   transition: 0.2s;
@@ -36,7 +36,12 @@ const CardBottomContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  height: 50px;
+  height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
 const CardTitle = styled.p`
@@ -45,11 +50,16 @@ const CardTitle = styled.p`
   margin: 15px 0 10px 15px;
 `;
 const ContentContainer = styled.div`
-  height: 108px;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 `;
 const CardPreviewContent = styled.p`
   font-size: 18px;
-  margin: 0 0 0 15px;
+  margin: 5px 0 0 15px;
 `;
 
 const DateContainer = styled.div`
