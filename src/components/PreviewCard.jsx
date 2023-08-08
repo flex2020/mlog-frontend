@@ -28,7 +28,6 @@ const CardImage = styled.img`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 310px;
-  border-radius: 10px 10px 0 0;
 `;
 
 const CardTitleContainer = styled.div`
