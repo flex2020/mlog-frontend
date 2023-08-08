@@ -8,6 +8,7 @@ const StyledHeader = styled.header`
 `;
 const NavBar = styled.div`
   position: fixed;
+  z-index: 1000;
   width: 100vw;
   height: 35px;
   background-color: #383838;
