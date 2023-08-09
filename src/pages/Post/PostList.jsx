@@ -13,7 +13,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 600;
 `;
 
