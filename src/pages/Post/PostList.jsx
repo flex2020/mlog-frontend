@@ -25,6 +25,16 @@ const CardContainer = styled.div`
   margin: 0 auto;
 `;
 
+const MsgContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+`;
+const NoDataMsg = styled.p`
+  font-size: 32px;
+  font-weight: 600;
+`;
+
 const PostList = () => {
   const [posts, setPosts] = useState([]);
 
@@ -54,6 +64,12 @@ const PostList = () => {
           })
         }
       </CardContainer>
+      {
+          posts.length === 0 &&
+          <MsgContainer>
+            <NoDataMsg>아직 존재하는 포스트가 없어요..</NoDataMsg>
+          </MsgContainer>
+        }
     </Page>
   );
 };
