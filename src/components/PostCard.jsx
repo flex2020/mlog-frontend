@@ -59,7 +59,7 @@ const ContentContainer = styled.div`
 `;
 const CardPreviewContent = styled.p`
   font-size: 18px;
-  margin: 5px 0 0 15px;
+  margin: 5px 15px 0 15px;
 `;
 
 const DateContainer = styled.div`
