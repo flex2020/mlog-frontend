@@ -5,6 +5,7 @@ import PostList from './pages/Post/PostList';
 import PostDetail from './pages/Post/PostDetail';
 import ProjectList from './pages/Project/ProjectList';
 import ProjectDetail from './pages/Project/ProjectDetail';
+import Login from './pages/Admin/Login';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/post/:id' element={<PostDetail />} />
           <Route path='/project' element={<ProjectList />} />
           <Route path='/project/:id' element={<ProjectDetail />} />
+          <Route path='/admin/login' element={<Login />} />
         </Routes>
       </BrowserRouter>
     );
