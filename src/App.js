@@ -4,6 +4,7 @@ import './App.css'
 import PostList from './pages/Post/PostList';
 import PostDetail from './pages/Post/PostDetail';
 import ProjectList from './pages/Project/ProjectList';
+import ProjectDetail from './pages/Project/ProjectDetail';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
           <Route path='/post' element={<PostList />} />
           <Route path='/post/:id' element={<PostDetail />} />
           <Route path='/project' element={<ProjectList />} />
+          <Route path='/project/:id' element={<ProjectDetail />} />
         </Routes>
       </BrowserRouter>
     );
