@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import styled from 'styled-components';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -73,6 +74,7 @@ const Button = styled.button`
 const Login = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const navigate = useNavigate();
   const loginHandler = (e) => {
     e.preventDefault();
     const loginData = {
@@ -84,6 +86,7 @@ const Login = () => {
       const expiresInHours = 3; // 만료 시간
       const expirationDate = new Date(new Date().getTime() + expiresInHours * 60 * 60 * 1000); // 현재시간 3시간 이후 만료
       Cookies.set('jwt', data.accessToken, { expires: expirationDate });
+      navigate('/admin/management');
     })
     .catch(error => {
       console.log(error);
