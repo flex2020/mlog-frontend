@@ -95,6 +95,10 @@ const TitleItem = styled.div`
   padding: 10px 0;
   border-right: 1px solid #9a9a9a;
   border-bottom: 1px solid #9a9a9a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
 `;
 
 const TimeItem = styled.div`
@@ -135,6 +139,10 @@ const ModifyButton = styled.button`
 
 const ManagementTable = ( {type, itemList} ) => {
   const navigate = useNavigate();
+  const onClickHandler = (id, type) => {
+    if (type === '포스트') navigate('/post/' + id);
+    else if (type === '프로젝트') navigate('/project/' + id);
+  }
   const uploadHandler = () => {
     if (!window.confirm(`${type}를 작성하시겠습니까?`)) return;
     if (type === '포스트') navigate('/admin/upload/post');
@@ -154,7 +162,7 @@ const ManagementTable = ( {type, itemList} ) => {
       <TableContainer>
         <TableHeadContainer>
           <TitleHead>{type} 제목</TitleHead>
-          <TimeHead>작성 시간</TimeHead>
+          <TimeHead>작성 날짜</TimeHead>
           <VisibleHead>공개 여부</VisibleHead>
           <ModifyHead>수정</ModifyHead>
         </TableHeadContainer>
@@ -162,8 +170,8 @@ const ManagementTable = ( {type, itemList} ) => {
           itemList.map((item) => {
             return (
               <TableRow key={item.id}>
-                <TitleItem>{item.title}</TitleItem>
-                <TimeItem>{item.writingTime.replace('T', ' ')}</TimeItem>
+                <TitleItem onClick={() => onClickHandler(item.id, type)}>{item.title}</TitleItem>
+                <TimeItem>{item.writingTime.split('T')[0]}</TimeItem>
                 <VisibleItem>
                   <VisibleButton id={item.id} type={type} visible={item.visible} />
                 </VisibleItem>
