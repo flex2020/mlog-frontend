@@ -8,9 +8,11 @@ import ProjectDetail from './pages/Project/ProjectDetail';
 import Login from './pages/Admin/Login';
 import Management from './pages/Admin/Management';
 import AuthCheck from './hoc/AuthCheck';
+import PostUpload from './pages/Post/PostUpload';
 
 function App() {
   const AuthManagement = AuthCheck(Management);
+  const AuthPostUpload = AuthCheck(PostUpload);
   return (
     <BrowserRouter>
       <Routes>
@@ -21,6 +23,7 @@ function App() {
         <Route path='/project/:id' element={<ProjectDetail />} />
         <Route path='/admin/login' element={<Login />} />
         <Route path='/admin/management' element={<AuthManagement />} />
+        <Route path='/admin/upload/post' element={<AuthPostUpload />} />
       </Routes>
     </BrowserRouter>
   );
