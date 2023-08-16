@@ -9,10 +9,12 @@ import Login from './pages/Admin/Login';
 import Management from './pages/Admin/Management';
 import AuthCheck from './hoc/AuthCheck';
 import PostUpload from './pages/Post/PostUpload';
+import PostModify from './pages/Post/PostModify';
 
 function App() {
   const AuthManagement = AuthCheck(Management);
   const AuthPostUpload = AuthCheck(PostUpload);
+  const AuthPostModify = AuthCheck(PostModify);
   return (
     <BrowserRouter>
       <Routes>
@@ -24,6 +26,7 @@ function App() {
         <Route path='/admin/login' element={<Login />} />
         <Route path='/admin/management' element={<AuthManagement />} />
         <Route path='/admin/upload/post' element={<AuthPostUpload />} />
+        <Route path='/admin/modify/post/:id' element={<AuthPostModify />} />
       </Routes>
     </BrowserRouter>
   );
