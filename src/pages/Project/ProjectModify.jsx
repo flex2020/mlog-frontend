@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Page from '../../components/Page';
 import styled from 'styled-components';
 import Header from '../../components/Header';
@@ -6,7 +6,7 @@ import { useState } from 'react';
 import MDEditor from '../../components/MDEditor';
 import { marked } from 'marked';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const TitleContainer = styled.div`
@@ -89,20 +89,39 @@ const LongInput = styled.textarea`
   }
 `;
 
-const ProjectUpload = () => {
+const ProjectModify = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [summary, setSummary] = useState('');
   const [duration, setDuration] = useState('');
   const [skills, setSkills] = useState('');
   const [learning, setLearning] = useState('');
+  const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get('/project/' + id)
+    .then(( {data} ) => {
+      setTitle(data.title);
+      setContent(data.content);
+      setSummary(data.summary);
+      setDuration(data.duration);
+      setSkills(data.skills);
+      setLearning(data.learning);
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('프로젝트를 불러오는데에 실패했습니다.');
+    })
+  }, []);
+  
 
   const uploadHandler = (event) => {
     event.preventDefault();
-    if (!window.confirm('프로젝트를 저장하시겠습니까?')) return;
+    if (!window.confirm('프로젝트를 수정하시겠습니까?')) return;
     const jwt = Cookies.get('jwt');
     const data = {
+      id: id,
       title: title,
       content: content,
       thumbnail: '',
@@ -112,13 +131,13 @@ const ProjectUpload = () => {
       learning: learning,
       visible: true,
     }
-    axios.post('/project', data, {
+    axios.put('/project', data, {
       headers: {
         'Authorization': `Bearer ${jwt}`
       }
     })
         .then(response => {
-          alert('프로젝트를 성공적으로 저장하였습니다.');
+          alert('프로젝트를 수정하였습니다.');
           navigate('/admin/management');
         })
         .catch(error => {
@@ -131,7 +150,7 @@ const ProjectUpload = () => {
     <Page>
       <Header showProfile={false} />
       <TitleContainer>
-        <Title>프로젝트 작성</Title>
+        <Title>프로젝트 수정</Title>
       </TitleContainer>
       <Container>
         <TitleInput placeholder='프로젝트명을 입력해주세요.' value={title} onChange={e => setTitle(e.target.value)} />
@@ -146,11 +165,11 @@ const ProjectUpload = () => {
         <LongInput placeholder='프로젝트를 진행하며 배운 점을 기술해주세요.' value={learning} onChange={e => setLearning(e.target.value)} />
       </Container>
       <ButtonContainer>
-        <Button onClick={uploadHandler}>프로젝트 작성</Button>
+        <Button onClick={uploadHandler}>프로젝트 수정</Button>
       </ButtonContainer>
 
     </Page>
   );
 };
 
-export default ProjectUpload;
+export default ProjectModify;

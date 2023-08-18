@@ -11,12 +11,14 @@ import AuthCheck from './hoc/AuthCheck';
 import PostUpload from './pages/Post/PostUpload';
 import PostModify from './pages/Post/PostModify';
 import ProjectUpload from './pages/Project/ProjectUpload';
+import ProjectModify from './pages/Project/ProjectModify';
 
 function App() {
   const AuthManagement = AuthCheck(Management);
   const AuthPostUpload = AuthCheck(PostUpload);
   const AuthPostModify = AuthCheck(PostModify);
   const AuthProjectUpload = AuthCheck(ProjectUpload);
+  const AuthProjectModify = AuthCheck(ProjectModify);
   return (
     <BrowserRouter>
       <Routes>
@@ -30,6 +32,7 @@ function App() {
         <Route path='/admin/upload/post' element={<AuthPostUpload />} />
         <Route path='/admin/modify/post/:id' element={<AuthPostModify />} />
         <Route path='/admin/upload/project' element={<AuthProjectUpload />} />
+        <Route path='/admin/modify/project/:id' element={<AuthProjectModify />} />
       </Routes>
     </BrowserRouter>
   );
