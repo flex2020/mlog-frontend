@@ -8,6 +8,7 @@ import { marked } from 'marked';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -129,6 +130,9 @@ const ProjectUpload = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>프로젝트 작성</title>
+      </Helmet>
       <Header showProfile={false} />
       <TitleContainer>
         <Title>프로젝트 작성</Title>

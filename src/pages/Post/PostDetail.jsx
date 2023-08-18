@@ -7,6 +7,7 @@ import axios from 'axios';
 import Header from '../../components/Header';
 import styled from 'styled-components';
 import MDEditor from '@uiw/react-md-editor';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -69,6 +70,9 @@ const PostDetail = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>{post.title} : Mlog</title>
+      </Helmet>
       <Header showProfile={false} />
       <TitleContainer>
         <Title>{post.title}</Title>

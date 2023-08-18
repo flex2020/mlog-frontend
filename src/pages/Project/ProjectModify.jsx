@@ -8,6 +8,7 @@ import { marked } from 'marked';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -148,6 +149,9 @@ const ProjectModify = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>{title} - 프로젝트 수정 | Mlog</title>
+      </Helmet>
       <Header showProfile={false} />
       <TitleContainer>
         <Title>프로젝트 수정</Title>

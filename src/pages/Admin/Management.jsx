@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -81,6 +82,9 @@ const Management = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>통합관리 | Mlog</title>
+      </Helmet>
       <Header showProfile={false} />
       <TitleContainer>
         <Title>통합 관리</Title>

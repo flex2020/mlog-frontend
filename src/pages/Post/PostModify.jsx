@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { marked } from 'marked';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -103,6 +104,9 @@ const PostModify = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>{title} - 포스트 수정 | Mlog</title>
+      </Helmet>
       <Header showProfile={false} />
       <TitleContainer>
         <Title>포스트 수정</Title>

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -97,6 +98,9 @@ const Login = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>관리자 로그인 | Mlog</title>
+      </Helmet>
       <Header showProfile={false} />
       <TitleContainer>
         <Title>관리자 로그인</Title>

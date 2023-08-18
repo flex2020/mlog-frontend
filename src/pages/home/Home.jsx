@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ContentPreview from '../../components/ContentPreview';
 import { useState } from 'react';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const Margin = styled.div`
   height: 120px;
@@ -37,6 +38,9 @@ const Home = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>Mlog</title>
+      </Helmet>
       <Header showProfile={true} />
       <Margin />
       <ContentPreview title='개발 포스트' data={postPreview} type='포스트'/>

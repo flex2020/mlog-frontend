@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import styled from 'styled-components';
 import ProjectCard from '../../components/ProjectCard';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -39,6 +40,9 @@ const ProjectList = () => {
   }, []);
   return (
     <Page>
+      <Helmet>
+        <title>프로젝트 | Mlog</title>
+      </Helmet>
       <Header showProfile={false} />
       <TitleContainer>
         <Title>프로젝트</Title>

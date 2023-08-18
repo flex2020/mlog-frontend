@@ -6,6 +6,7 @@ import axios from 'axios';
 import Header from '../../components/Header';
 import styled from 'styled-components';
 import PostCard from '../../components/PostCard';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -52,6 +53,9 @@ const PostList = () => {
   return (
     <Page>
       <Header showProfile={false}/>
+      <Helmet>
+        <title>개발 포스트 | Mlog</title>
+      </Helmet>
       <TitleContainer>
         <Title>개발 포스트</Title>
       </TitleContainer>

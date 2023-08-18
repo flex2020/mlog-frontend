@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import MDEditor from '@uiw/react-md-editor';
+import { Helmet } from 'react-helmet';
 
 const TitleContainer = styled.div`
   display: flex;
@@ -78,6 +79,9 @@ const ProjectDetail = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>{project.title} | Mlog</title>
+      </Helmet>
       <Header showProfile={false} />
       <TitleContainer>
         <Title>{project.title}</Title>
