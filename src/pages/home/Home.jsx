@@ -19,7 +19,9 @@ const Home = () => {
     // 개발 포스트 미리보기 데이터 요청
     axios.get('/post/preview')
     .then(( {data} ) => {
-      setPostPreview(data);
+      if (Array.isArray(data)) {
+        setPostPreview(data);
+      }
     })
     .catch((error) => {
       console.log(error);
@@ -27,7 +29,9 @@ const Home = () => {
     // 프로젝트 미리보기 데이터 요청
     axios.get('/project/preview')
     .then(( {data} ) => {
-      setProjectPreivew(data);
+      if (Array.isArray(data)) {
+        setProjectPreivew(data);
+      }
     })
     .catch((error) => {
       console.log(error);
