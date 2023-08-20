@@ -46,11 +46,11 @@ const ContentPreview = ( {title, data, type} ) => {
     <Container>
       <Title>{title}</Title>
       <CardContainer>
-        {data.map((content) => {
+        {Array.isArray(data) ? data.map((content) => {
             return (
               <PreviewCard key={content.id} id={content.id} title={content.title} thumbnail={content.thumbnail} type={eType}/>
             );
-          })}
+          }) : null}
         {data.length === 3 &&
         <ShowMoreContainer>
           <ShowMore to='/post'>더 보기</ShowMore>
