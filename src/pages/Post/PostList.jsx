@@ -42,7 +42,9 @@ const PostList = () => {
   useEffect(() => {
     axios.get('/post')
     .then(( {data} ) => {
-      setPosts(data);
+      if (Array.isArray(data)) {
+        setPosts(data);
+      }
     })
     .catch((error) => {
       console.log(error);

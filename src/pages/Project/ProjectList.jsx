@@ -32,7 +32,9 @@ const ProjectList = () => {
   useEffect(() => {
     axios.get('/project')
     .then(( {data} ) => {
-      setProjects(data);
+      if (Array.isArray(data)) {
+        setProjects(data);
+      }
     })
     .catch((error) => {
       console.log(error);

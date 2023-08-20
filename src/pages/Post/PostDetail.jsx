@@ -59,7 +59,6 @@ const PostDetail = () => {
   useEffect(() => {
     axios.get(`/post/${id}`)
     .then(( {data} ) => {
-      console.log(data);
       setPost(data);
     })
     .catch((error) => {
@@ -78,7 +77,7 @@ const PostDetail = () => {
         <Title>{post.title}</Title>
       </TitleContainer>
       <DateContainer>
-        <Date>{post.writingTime.split('T')[0]}</Date>
+        <Date>{(post.writingTime || '').split('T')[0]}</Date>
       </DateContainer>
       <ContentContainer>
         <MDEditor.Markdown 
