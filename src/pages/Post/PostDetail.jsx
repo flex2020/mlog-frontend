@@ -66,7 +66,7 @@ const PostDetail = () => {
       console.log(error);
     });
 
-  }, []);
+  }, [id]);
 
   return (
     <Page>

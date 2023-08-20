@@ -20,7 +20,7 @@ export default function (SpecificComponent) {
         };
     
         checkAuth();
-      }, []);
+      }, [navigate]);
       if (isLogin) {
         return (
           <SpecificComponent {...props} />

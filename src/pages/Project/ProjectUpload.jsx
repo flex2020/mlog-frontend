@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Header from '../../components/Header';
 import { useState } from 'react';
 import MDEditor from '../../components/MDEditor';
-import { marked } from 'marked';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';

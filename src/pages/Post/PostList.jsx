@@ -43,7 +43,6 @@ const PostList = () => {
     axios.get('/post')
     .then(( {data} ) => {
       setPosts(data);
-      console.log(data);
     })
     .catch((error) => {
       console.log(error);

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Header from '../../components/Header';
 import { useState } from 'react';
 import MDEditor from '../../components/MDEditor';
-import { marked } from 'marked';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -114,7 +113,7 @@ const ProjectModify = () => {
       console.log(error);
       alert('프로젝트를 불러오는데에 실패했습니다.');
     })
-  }, []);
+  }, [id]);
   
 
   const uploadHandler = (event) => {

@@ -68,11 +68,10 @@ const PostModify = () => {
   useEffect(() => {
     axios.get('/post/' + id)
     .then(( {data} ) => {
-      console.log(data);
       setTitle(data.title);
       setContent(data.content);
     })
-  }, []);
+  }, [id]);
 
   const uploadHandler = (event) => {
     event.preventDefault();

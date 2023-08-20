@@ -75,7 +75,7 @@ const ProjectDetail = () => {
     .catch((error) => {
       console.log(error);
     });
-  }, []);
+  }, [id]);
 
   return (
     <Page>
