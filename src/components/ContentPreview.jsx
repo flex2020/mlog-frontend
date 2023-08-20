@@ -49,7 +49,7 @@ const ContentPreview = ( {title, data, type} ) => {
         {data.map((content) => {
             return (
               <PreviewCard key={content.id} id={content.id} title={content.title} thumbnail={content.thumbnail} type={eType}/>
-            )
+            );
           })}
         {data.length === 3 &&
         <ShowMoreContainer>
