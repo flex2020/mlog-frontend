@@ -28,6 +28,9 @@ const Duration = styled.p`
   font-weight: 600;
   color: #D27373;
   margin: 0;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
 
 const SummaryContainer = styled.div`
@@ -40,6 +43,11 @@ const Summary = styled.p`
   font-size: 40px;
   font-weight: 600;
   color: #929292;
+  @media screen and (max-width: 500px) {
+    font-size: 30px;
+    width: 95%;
+    margin: 5px auto;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -51,8 +59,9 @@ const ContentContainer = styled.div`
   & h2 {
     font-size: 32px;
   }
-  & img {
-
+  @media screen and (max-width: 500px) {
+    width: 95%;
+    margin: 5px auto;
   }
 `;
 

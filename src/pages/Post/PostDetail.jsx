@@ -19,6 +19,10 @@ const Title = styled.h2`
   font-weight: 600;
   width: 50%;
   margin-bottom: 10px;
+  @media screen and (max-width: 500px) {
+    width: 95%;
+    margin: 5px auto;
+  }
 `;
 
 const DateContainer = styled.div`
@@ -26,6 +30,10 @@ const DateContainer = styled.div`
   width: 50%;
   margin: 0 auto;
   justify-content: end;
+  @media screen and (max-width: 500px) {
+    width: 95%;
+    margin: 5px auto;
+  }
 `;
 
 const Date = styled.p`
@@ -43,8 +51,9 @@ const ContentContainer = styled.div`
   & h2 {
     font-size: 32px;
   }
-  & img {
-
+  @media screen and (max-width: 500px) {
+    width: 95%;
+    margin: 5px auto;
   }
 `;
 
