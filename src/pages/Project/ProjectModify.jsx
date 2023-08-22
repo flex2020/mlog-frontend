@@ -100,7 +100,7 @@ const ProjectModify = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('/project/' + id)
+    axios.get('/api/project/' + id)
     .then(( {data} ) => {
       setTitle(data.title);
       setContent(data.content);
@@ -131,7 +131,7 @@ const ProjectModify = () => {
       learning: learning,
       visible: true,
     }
-    axios.put('/project', data, {
+    axios.put('/api/project', data, {
       headers: {
         'Authorization': `Bearer ${jwt}`
       }

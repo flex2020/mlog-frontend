@@ -112,7 +112,7 @@ const ProjectUpload = () => {
       learning: learning,
       visible: true,
     }
-    axios.post('/project', data, {
+    axios.post('/api/project', data, {
       headers: {
         'Authorization': `Bearer ${jwt}`
       }

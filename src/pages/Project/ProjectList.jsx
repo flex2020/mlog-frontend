@@ -30,7 +30,7 @@ const NoDataMsg = styled.p`
 const ProjectList = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
-    axios.get('/project')
+    axios.get('/api/project')
     .then(( {data} ) => {
       if (Array.isArray(data)) {
         setProjects(data);

@@ -17,7 +17,7 @@ const Home = () => {
   const [projectPreview, setProjectPreivew] = useState([]);
   useEffect(() => {
     // 개발 포스트 미리보기 데이터 요청
-    axios.get('/post/preview')
+    axios.get('/api/post/preview')
     .then(( {data} ) => {
       if (Array.isArray(data)) {
         setPostPreview(data);
@@ -27,7 +27,7 @@ const Home = () => {
       console.log(error);
     });
     // 프로젝트 미리보기 데이터 요청
-    axios.get('/project/preview')
+    axios.get('/api/project/preview')
     .then(( {data} ) => {
       if (Array.isArray(data)) {
         setProjectPreivew(data);

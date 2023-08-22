@@ -66,7 +66,7 @@ const PostModify = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    axios.get('/post/' + id)
+    axios.get('/api/post/' + id)
     .then(( {data} ) => {
       setTitle(data.title);
       setContent(data.content);
@@ -86,7 +86,7 @@ const PostModify = () => {
       fileList: [],
       visible: true,
     }
-    axios.put('/post', data, {
+    axios.put('/api/post', data, {
       headers: {
         'Authorization': `Bearer ${jwt}`
       }

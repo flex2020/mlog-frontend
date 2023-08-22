@@ -82,7 +82,7 @@ const Login = () => {
       id: id,
       password: pw
     };
-    axios.post('/admin/login', loginData)
+    axios.post('/api/admin/login', loginData)
     .then(({data}) => {
       const expiresInHours = 3; // 만료 시간
       const expirationDate = new Date(new Date().getTime() + expiresInHours * 60 * 60 * 1000); // 현재시간 3시간 이후 만료

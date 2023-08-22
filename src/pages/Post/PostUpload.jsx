@@ -78,7 +78,7 @@ const PostUpload = () => {
       fileList: [],
       visible: true,
     }
-    axios.post('/post', data, {
+    axios.post('/api/post', data, {
       headers: {
         'Authorization': `Bearer ${jwt}`
       }

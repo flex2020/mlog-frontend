@@ -40,7 +40,7 @@ const PostList = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('/post')
+    axios.get('/api/post')
     .then(( {data} ) => {
       if (Array.isArray(data)) {
         setPosts(data);

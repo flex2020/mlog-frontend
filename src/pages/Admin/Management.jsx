@@ -42,7 +42,7 @@ const Management = () => {
   const navigate = useNavigate();
 
   const logoutHandler = () => {
-    axios.post('/admin/logout')
+    axios.post('/api/admin/logout')
     .then(() => {
       alert('로그아웃이 완료되었습니다.');
       navigate('/');
@@ -55,25 +55,28 @@ const Management = () => {
 
   useEffect(() => {
     const jwt = Cookies.get('jwt');
-    axios.get('/admin/postList', {
+    axios.get('/api/admin/postList', {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
     })
     .then(( {data} ) => {
-      setPosts(data);
+      if (Array.isArray(data)) {
+        setPosts(data);
+      }
     })
     .catch((error) => {
       alert('포스트를 불러오는 중 오류가 발생했습니다.');
     });
-    axios.get('/admin/projectList', {
+    axios.get('/api/admin/projectList', {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
     })
     .then(( {data} ) => {
-      setProjects(data);
-      console.log(data);
+      if (Array.isArray(data)) {
+        setProjects(data);
+      }
     })
     .catch((error) => {
       alert('프로젝트를 불러오는 중 오류가 발생했습니다.');

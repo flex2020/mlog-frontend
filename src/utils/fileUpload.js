@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const fileUpload = async (file) => {
-  const FILE_API= '/post/file';
+  const FILE_API= '/api/post/file';
   const jwt = Cookies.get('jwt');
 
   const formData = new FormData();
