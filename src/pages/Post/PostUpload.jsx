@@ -71,11 +71,24 @@ const PostUpload = () => {
     if (!window.confirm('포스트를 저장하시겠습니까?')) return;
     const jwt = Cookies.get('jwt');
     const previewContent = marked(content).replace(/<[^>]*>?/g, '').substring(0, 255);
+    const regex = /!\[.*\]\((.*)\)/g;
+    const fileList = [];
+
+    let file;
+    const exts = [];
+    while ((file = regex.exec(content)) !== null) {
+      const uuid = file[1].substring(file[1].lastIndexOf('/') + 1, file[1].lastIndexOf('.'));
+      const ext = file[1].substring(file[1].lastIndexOf('.') + 1);
+      exts.push(ext);
+      fileList.push(uuid);
+    }
+
     const data = {
       title: title,
       content: content,
       previewContent: previewContent,
-      fileList: [],
+      thumbnail: fileList.length > 0 ? `/files/original/${fileList[0]}.${exts[0]}` : null,
+      fileList: fileList,
       visible: true,
     }
     axios.post('/api/post', data, {
