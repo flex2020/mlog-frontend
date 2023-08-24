@@ -95,7 +95,7 @@ const PostModify = () => {
       title: title,
       content: content,
       previewContent: previewContent,
-      thumbnail: fileList.length > 0 ? `/files/original/${fileList[0]}.${exts[0]}` : null,
+      thumbnail: fileList.length > 0 ? `/api/files/original/${fileList[0]}.${exts[0]}` : null,
       fileList: fileList,
       visible: true,
     }
