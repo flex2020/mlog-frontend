@@ -14,7 +14,7 @@ const fileUpload = async (file) => {
     },
   });
   console.log(`업로드한 파일명: ${data}`);
-  return `/files/original/${data}`;
+  return `/api/files/original/${data}`;
 }
 
 export default fileUpload;
