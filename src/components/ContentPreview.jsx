@@ -9,6 +9,10 @@ const Container = styled.div`
   justify-content: center;
   margin: 0 450px 50px;
   width: 1100px;
+  @media screen and (max-width: 500px) {
+    width: 95%;
+    margin: 0 auto 30px;
+  }
 `;
 
 const Title = styled.h1`
@@ -19,12 +23,21 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   text-align: center;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ShowMoreContainer = styled.div`
   display: flex;
   align-items: end;
   margin-bottom: 5px;
+  @media screen and (max-width: 500px) {
+    width: 85%;
+    margin-bottom: 0;
+    justify-content: end;
+  }
 `
 
 const ShowMore = styled(Link)`

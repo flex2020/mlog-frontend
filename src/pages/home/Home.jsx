@@ -9,6 +9,9 @@ import { Helmet } from 'react-helmet';
 
 const Margin = styled.div`
   height: 120px;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 

@@ -12,6 +12,10 @@ const Card = styled.div`
   &:hover {
     transform: translateY(-10px);
   }
+  @media screen and (max-width: 500px) {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
 `;
 
 const CardImageContainer = styled.div`
