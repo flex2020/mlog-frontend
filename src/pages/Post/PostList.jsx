@@ -24,6 +24,11 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
   width: calc(100% - 520px);
   margin: 0 auto;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const MsgContainer = styled.div`

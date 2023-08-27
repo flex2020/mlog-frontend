@@ -11,6 +11,9 @@ const Card = styled.div`
   &:hover {
     transform: translateY(-10px);
   }
+  @media screen and (max-width: 500px) {
+    margin: 0 0 20px 0;
+  }
 `;
 
 const CardImageContainer = styled.div`
@@ -74,7 +77,7 @@ const DateContainer = styled.div`
 const StyledLink = styled(Link)`
   color: black;
   text-decoration: none;
-`
+`;
 
 
 const PostCard = ( {id, title, previewContent, thumbnail, writingTime} ) => {
