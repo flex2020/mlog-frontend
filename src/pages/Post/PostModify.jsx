@@ -66,7 +66,12 @@ const PostModify = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    axios.get('/api/post/' + id)
+    const jwt = Cookies.get('jwt');
+    axios.get('/api/admin/post/' + id, {
+      headers: {
+        'Authorization': `Bearer ${jwt}`
+      }
+    })
     .then(( {data} ) => {
       setTitle(data.title);
       setContent(data.content);
