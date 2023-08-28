@@ -7,17 +7,28 @@ const Container = styled.div`
   justify-content: center;
   height: 380px;
   margin-bottom: 25px;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    height: auto;
+  }
 `;
 const DateContainer = styled.div`
   display: flex;
   align-items: start;
   margin-right: 20px;
+  @media screen and (max-width: 500px) {
+    text-align: center;
+  }
 `;
 const Date = styled.p`
   width: 140px;
   font-size: 32px;
   font-weight: 600;
   margin: 0;
+  @media screen and (max-width: 500px) {
+    font-size: 24px;
+    width: 100%;
+  }
 `;
 const CardContainer = styled.div`
   display: flex;
@@ -30,6 +41,9 @@ const CardContainer = styled.div`
   &:hover {
     scale: 102%;
   }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const CardImageContainer = styled.div`
@@ -37,6 +51,9 @@ const CardImageContainer = styled.div`
   height: 325px;
   position: relative;
   margin-left: 30px;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const CardImage = styled.img`
@@ -52,6 +69,9 @@ const DescContainer = styled.div`
   height: 100%;
   margin-left: 30px;
   margin-right: 30px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const ProjectTitle = styled.p`
