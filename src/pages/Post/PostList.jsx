@@ -18,6 +18,38 @@ const Title = styled.p`
   font-weight: 600;
 `;
 
+const SequenceButtonContainer = styled.div`
+  display: flex;
+  margin: 0 auto 40px;
+  width: calc(100% - 520px);
+  justify-content: center;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+`;
+
+const LatestButton = styled.button`
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #383838;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+`;
+
+const OldestButton = styled.button`
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #383838;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+`;
+
 const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -43,6 +75,14 @@ const NoDataMsg = styled.p`
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
+  const [sequence, setSequence] = useState(0);
+
+  const sequenceClick = () => {
+    if (sequence === 0) setSequence(1);
+    else setSequence(0);
+    posts.reverse();
+
+  }
 
   useEffect(() => {
     axios.get('/api/post')
@@ -56,6 +96,7 @@ const PostList = () => {
     })
   }, [])
 
+
   return (
     <Page>
       <Header showProfile={false}/>
@@ -65,6 +106,21 @@ const PostList = () => {
       <TitleContainer>
         <Title>개발 포스트</Title>
       </TitleContainer>
+      {
+        sequence === 0 &&
+        <SequenceButtonContainer>
+          <LatestButton onClick={sequenceClick} disabled>최신 순</LatestButton>
+          <OldestButton onClick={sequenceClick}>오래된 순</OldestButton>
+        </SequenceButtonContainer>
+      }
+            {
+        sequence === 1 &&
+        <SequenceButtonContainer>
+          <LatestButton onClick={sequenceClick}>최신 순</LatestButton>
+          <OldestButton onClick={sequenceClick} disabled>오래된 순</OldestButton>
+        </SequenceButtonContainer>
+      }
+      
       <CardContainer>
         {
           posts.map((post) => {
