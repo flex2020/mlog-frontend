@@ -42,7 +42,7 @@ const Name = styled.h1`
 const ProfileCard = () => {
   return (
     <CardContainer>
-      <ProfileImage src='https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E' />
+      <ProfileImage src={process.env.PUBLIC_URL + '/images/profile.jpg'} />
       <div>
         <ProfileComment>실천으로 성장하는 백엔드 개발자</ProfileComment>
         <UnderLine />
