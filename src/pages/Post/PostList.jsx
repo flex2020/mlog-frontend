@@ -54,7 +54,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: calc(100% - 520px);
+  width: 1360px;
   margin: 0 auto;
   @media screen and (max-width: 500px) {
     width: 100%;
