@@ -2,7 +2,7 @@ import React from "react";
 import onImagePasted from "../utils/onImagePasted";
 import Editor from "@uiw/react-md-editor";
 
-const MDEditor = ( {content, setContent} ) => {
+const MDEditor = ( {content, setContent, type} ) => {
 
   return (
     <div>
@@ -12,10 +12,10 @@ const MDEditor = ( {content, setContent} ) => {
           height={865} 
           onChange={(c) => setContent(c)}
           onPaste={async (event) => {
-            await onImagePasted(event.clipboardData, setContent);
+            await onImagePasted(event.clipboardData, setContent, type);
           }}
           onDrop={async (event) => {
-            await onImagePasted(event.dataTransfer, setContent);
+            await onImagePasted(event.dataTransfer, setContent, type);
           }}
           />
         </React.Fragment>

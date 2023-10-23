@@ -1,7 +1,7 @@
 import fileUpload from './fileUpload';
 import insertToTextArea from './insertToTextArea';
 
-const onImagePasted = async (dataTransfer, setContent) => {
+const onImagePasted = async (dataTransfer, setContent, type) => {
   const files = [];
   for (let index = 0; index < dataTransfer.items.length; index += 1) {
     const file = dataTransfer.files.item(index);
@@ -10,7 +10,7 @@ const onImagePasted = async (dataTransfer, setContent) => {
 
   await Promise.all(
     files.map(async (file) => {
-      const url = await fileUpload(file);
+      const url = await fileUpload(file, type);
       const insertedMarkdown = insertToTextArea(`![](${url})`);
       if (!insertedMarkdown) {
         return;
