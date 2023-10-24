@@ -25,7 +25,10 @@ const Container = styled.div`
   flex-direction: column;
   margin: 0 auto;
   width: 50%;
-  
+  & img {
+    display: block;
+    margin: 1rem auto;
+  }
 `;
 
 const TitleInput = styled.input`
