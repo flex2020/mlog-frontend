@@ -59,6 +59,10 @@ const ContentContainer = styled.div`
   & h2 {
     font-size: 32px;
   }
+  & img {
+    display: block;
+    margin: 1rem auto;
+  }
   @media screen and (max-width: 500px) {
     width: 95%;
     margin: 5px auto;
