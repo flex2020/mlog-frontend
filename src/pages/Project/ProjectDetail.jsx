@@ -59,7 +59,7 @@ const ContentContainer = styled.div`
   & h2 {
     font-size: 32px;
   }
-  & img {
+  & p > img {
     display: block;
     margin: 1rem auto;
   }
