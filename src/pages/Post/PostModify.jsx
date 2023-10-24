@@ -130,7 +130,7 @@ const PostModify = () => {
       </TitleContainer>
       <Container>
         <TitleInput placeholder='제목을 입력해주세요.' value={title} onChange={e => setTitle(e.target.value)} />
-        <MDEditor content={content} setContent={setContent} />
+        <MDEditor content={content} setContent={setContent} type="포스트" />
       </Container>
       <ButtonContainer>
         <Button onClick={uploadHandler}>포스트 수정</Button>
