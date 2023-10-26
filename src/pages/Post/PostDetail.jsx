@@ -42,6 +42,16 @@ const Date = styled.p`
   color: #7f7f7f;
 `;
 
+const Series = styled.div`
+  border-radius: 20px;
+  background-color: rgb(202, 248, 226);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 10px;
+  color: rgb(56, 56, 56);
+  margin: auto auto auto 0;
+`
+
 const ContentContainer = styled.div`
   width: 50%;
   margin: 20px auto;
@@ -65,6 +75,7 @@ const PostDetail = () => {
   const { id } = useParams();
   const [post, setPost] = useState({
     title: '제목 불러오는 중..',
+    series: '시리즈 불러오는 중..',
     content: '내용 불러오는 중..',
     writingTime: '작성날짜 불러오는 중..',
   });
@@ -90,6 +101,9 @@ const PostDetail = () => {
         <Title>{post.title}</Title>
       </TitleContainer>
       <DateContainer>
+        {post.series &&
+          <Series>{post.series}</Series>
+        }
         <Date>{(post.writingTime || '').split('T')[0]}</Date>
       </DateContainer>
       <ContentContainer>
@@ -97,7 +111,6 @@ const PostDetail = () => {
           className='viewer'
           source={post.content} />
       </ContentContainer>
-      
     </Page>
   );
 };

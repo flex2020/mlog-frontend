@@ -39,7 +39,7 @@ const CardBottomContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  height: 70px;
+  height: 50px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -50,7 +50,7 @@ const TitleContainer = styled.div`
 const CardTitle = styled.p`
   font-size: 20px;
   font-weight: 600;
-  margin: 15px 0 10px 15px;
+  margin: 0 0 0 15px;
 `;
 const ContentContainer = styled.div`
   height: 100%;
@@ -78,9 +78,20 @@ const StyledLink = styled(Link)`
   color: black;
   text-decoration: none;
 `;
+const SeriesContainer = styled.div`
+  display: flex;
+`;
+const Series = styled.div`
+  border-radius: 20px;
+  background-color: rgb(202, 248, 226);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 10px;
+  margin: 5px 0 0 10px;
+  color: rgb(56, 56, 56);
+`
 
-
-const PostCard = ( {id, title, previewContent, thumbnail, writingTime} ) => {
+const PostCard = ( {id, series, title, previewContent, thumbnail, writingTime} ) => {
   return (
     <StyledLink to={'/post/' + id}>
       <Card>
@@ -88,6 +99,9 @@ const PostCard = ( {id, title, previewContent, thumbnail, writingTime} ) => {
           <CardImage src={thumbnail} />
         </CardImageContainer>
         <CardBottomContainer>
+          <SeriesContainer>
+            <Series>{series}</Series>
+          </SeriesContainer>
           <TitleContainer>
             <CardTitle>{title}</CardTitle>
           </TitleContainer>

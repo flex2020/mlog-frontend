@@ -61,12 +61,41 @@ const Button = styled.button`
   border-radius: 10px;
   cursor: pointer;
 `;
+const SelectBox = styled.select`
+  width: 30%;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  padding: 5px;
+  & * {
+    border-radius: 10px;
+  }
+`;
 
 const PostModify = () => {
   const { id } = useParams();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [sereisList, setSeriesList] = useState([]);
+  const [currentSeries, setCurrentSeries] = useState('');
   const navigate = useNavigate();
+
+  const jwt = Cookies.get('jwt');
+
+  useEffect(() => {
+    axios.get('/api/admin/seriesList', {
+      headers: {
+        Authorization: `Bearer ${jwt}`
+      }
+    })
+    .then(( {data} ) => {
+      if (Array.isArray(data)) {
+        setSeriesList(data);
+      }
+    })
+    .catch((error) => {
+      alert('시리즈를 불러오는 중 오류가 발생했습니다.');
+    });
+  }, [jwt]);
   
   useEffect(() => {
     const jwt = Cookies.get('jwt');
@@ -78,13 +107,18 @@ const PostModify = () => {
     .then(( {data} ) => {
       setTitle(data.title);
       setContent(data.content);
+      setCurrentSeries(data.series);
     })
   }, [id]);
+
+  const handleSelectChange = (e) => {
+    const v = e.target.value;
+    setCurrentSeries(v);
+  }
 
   const uploadHandler = (event) => {
     event.preventDefault();
     if (!window.confirm('포스트를 저장하시겠습니까?')) return;
-    const jwt = Cookies.get('jwt');
     const previewContent = marked(content).replace(/<[^>]*>?/g, '').substring(0, 255);
     const regex = /!\[.*\]\((.*)\)/g;
     const fileList = [];
@@ -102,6 +136,7 @@ const PostModify = () => {
       id: id,
       title: title,
       content: content,
+      series: currentSeries === 'none' ? null : currentSeries,
       previewContent: previewContent,
       thumbnail: fileList.length > 0 ? `/api/files/original/${fileList[0]}.${exts[0]}` : null,
       fileList: fileList,
@@ -133,6 +168,21 @@ const PostModify = () => {
       </TitleContainer>
       <Container>
         <TitleInput placeholder='제목을 입력해주세요.' value={title} onChange={e => setTitle(e.target.value)} />
+        <SelectBox onChange={handleSelectChange}>
+          <option value='none'>시리즈 선택 안함</option>
+          {
+            sereisList.map((series) => {
+              if (series.series === currentSeries) 
+                return (
+                  <option value={series.series} selected>{series.series}</option>
+                )
+              else 
+                return (
+                  <option value={series.series}>{series.series}</option>
+                )
+            })
+          }
+        </SelectBox>
         <MDEditor content={content} setContent={setContent} type="포스트" />
       </Container>
       <ButtonContainer>

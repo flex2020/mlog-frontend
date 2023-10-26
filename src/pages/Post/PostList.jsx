@@ -125,7 +125,7 @@ const PostList = () => {
         {
           posts.map((post) => {
             return (
-              <PostCard key={post.id} id={post.id} title={post.title} previewContent={post.previewContent} thumbnail={post.thumbnail} writingTime={post.writingTime} />
+              <PostCard key={post.id} id={post.id} series={post.series} title={post.title} previewContent={post.previewContent} thumbnail={post.thumbnail} writingTime={post.writingTime} />
             )
           })
         }
