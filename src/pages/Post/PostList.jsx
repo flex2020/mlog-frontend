@@ -126,7 +126,8 @@ const PostList = () => {
     setPosts(newPosts);
   }
   const seriesClickCancel = (e) => {
-    setPosts(allPosts);
+    const sortedList = allPosts.sort((a, b) => b.id - a.id);
+    setPosts(sortedList);
     setSequence(0);
     setCurrentSeries('');
   }
