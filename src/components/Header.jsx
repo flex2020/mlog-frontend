@@ -132,7 +132,6 @@ const Header = ( props ) => {
         <ToggleMenuContainer>
           <ToggleMenu onClick={() => toggleMenuClickHandler('/post')}>Develop Post</ToggleMenu>
           <ToggleMenu onClick={() => toggleMenuClickHandler('/project')}>Project</ToggleMenu>
-          <ToggleMenu onClick={() => toggleMenuClickHandler('/resume')}>Resume</ToggleMenu>
         </ToggleMenuContainer>
         }
 
