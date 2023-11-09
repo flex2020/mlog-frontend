@@ -125,7 +125,6 @@ const Header = ( props ) => {
         <HomeLink to='/'>Mlog</HomeLink>
         <NavbarLink to='/post'>Develop Post</NavbarLink>
         <NavbarLink to='/project'>Project</NavbarLink>
-        <NavbarLink to='/resume'>Resume</NavbarLink>
         <ToggleButton onClick={toggleClickHandler}>
           <img src={process.env.PUBLIC_URL + '/images/list.svg'} />
         </ToggleButton>
