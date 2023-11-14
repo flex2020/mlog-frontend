@@ -81,7 +81,7 @@ const PostDetail = () => {
   });
 
   useEffect(() => {
-    axios.get(`/api/post/${id}`)
+    axios.get(`/api/posts/${id}`)
     .then(( {data} ) => {
       setPost(data);
     })

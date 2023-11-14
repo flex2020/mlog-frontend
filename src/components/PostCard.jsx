@@ -93,7 +93,7 @@ const Series = styled.div`
 
 const PostCard = ( {id, series, title, previewContent, thumbnail, writingTime} ) => {
   return (
-    <StyledLink to={'/post/' + id}>
+    <StyledLink to={'/posts/' + id}>
       <Card>
         <CardImageContainer>
           <CardImage src={thumbnail} />

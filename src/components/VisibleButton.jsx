@@ -52,14 +52,10 @@ const VisibleButton = ( {id, type, visible} ) => {
     if (!window.confirm(`${type}의 공개여부를 변경하시겠습니까?`)) return;
 
     if (type === '포스트') {
-      axios.delete('/api/post', {
+      axios.post(`/api/posts/${id}/visibility`, null, {
         headers: {
           Authorization: `Bearer ${jwt}`
-        },
-        data: {
-          id: id
-        }
-      })
+        }})
       .then(() => {
         alert('포스트의 공개여부를 변경하였습니다.');
         window.location.reload();
@@ -68,14 +64,10 @@ const VisibleButton = ( {id, type, visible} ) => {
         alert('포스트의 공개여부 변경에 실패했습니다.');
       });
     } else if (type === '프로젝트') {
-      axios.delete('/api/project', {
+      axios.post(`/api/projects/${id}/visibility`, null, {
         headers: {
           Authorization: `Bearer ${jwt}`
-        },
-        data: {
-          id: id
-        }
-      })
+        }})
       .then(() => {
         alert('프로젝트의 공개여부를 변경하였습니다.');
         window.location.reload();

@@ -23,16 +23,16 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/post' element={<PostList />} />
-        <Route path='/post/:id' element={<PostDetail />} />
-        <Route path='/project' element={<ProjectList />} />
-        <Route path='/project/:id' element={<ProjectDetail />} />
+        <Route path='/posts' element={<PostList />} />
+        <Route path='/posts/:id' element={<PostDetail />} />
+        <Route path='/projects' element={<ProjectList />} />
+        <Route path='/projects/:id' element={<ProjectDetail />} />
         <Route path='/admin/login' element={<Login />} />
         <Route path='/admin/management' element={<AuthManagement />} />
-        <Route path='/admin/upload/post' element={<AuthPostUpload />} />
-        <Route path='/admin/modify/post/:id' element={<AuthPostModify />} />
-        <Route path='/admin/upload/project' element={<AuthProjectUpload />} />
-        <Route path='/admin/modify/project/:id' element={<AuthProjectModify />} />
+        <Route path='/admin/upload/posts' element={<AuthPostUpload />} />
+        <Route path='/admin/modify/posts/:id' element={<AuthPostModify />} />
+        <Route path='/admin/upload/projects' element={<AuthProjectUpload />} />
+        <Route path='/admin/modify/projects/:id' element={<AuthProjectModify />} />
       </Routes>
     </BrowserRouter>
   );

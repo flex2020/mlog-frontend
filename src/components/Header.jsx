@@ -123,15 +123,15 @@ const Header = ( props ) => {
     <StyledHeader>
       <NavBar>
         <HomeLink to='/'>Mlog</HomeLink>
-        <NavbarLink to='/post'>Develop Post</NavbarLink>
-        <NavbarLink to='/project'>Project</NavbarLink>
+        <NavbarLink to='/posts'>Develop Post</NavbarLink>
+        <NavbarLink to='/projects'>Project</NavbarLink>
         <ToggleButton onClick={toggleClickHandler}>
           <img src={process.env.PUBLIC_URL + '/images/list.svg'} />
         </ToggleButton>
         {toggleVisibility &&
         <ToggleMenuContainer>
-          <ToggleMenu onClick={() => toggleMenuClickHandler('/post')}>Develop Post</ToggleMenu>
-          <ToggleMenu onClick={() => toggleMenuClickHandler('/project')}>Project</ToggleMenu>
+          <ToggleMenu onClick={() => toggleMenuClickHandler('/posts')}>Develop Post</ToggleMenu>
+          <ToggleMenu onClick={() => toggleMenuClickHandler('/projects')}>Project</ToggleMenu>
         </ToggleMenuContainer>
         }
 

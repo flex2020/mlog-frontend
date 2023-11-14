@@ -41,7 +41,7 @@ const NoDataText = styled.p`
 `;
 
 const ContentPreview = ( {title, data, type} ) => {
-  const eType = type === '포스트' ? 'post' : 'project';
+  const eType = type === '포스트' ? 'posts' : 'projects';
   return (
     <Container>
       <Title to={'/' + eType}>{title}</Title>

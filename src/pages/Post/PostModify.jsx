@@ -82,7 +82,7 @@ const PostModify = () => {
   const jwt = Cookies.get('jwt');
 
   useEffect(() => {
-    axios.get('/api/admin/seriesList', {
+    axios.get('/api/series', {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
@@ -99,7 +99,7 @@ const PostModify = () => {
   
   useEffect(() => {
     const jwt = Cookies.get('jwt');
-    axios.get('/api/admin/post/' + id, {
+    axios.get('/api/posts/' + id, {
       headers: {
         'Authorization': `Bearer ${jwt}`
       }
@@ -142,7 +142,7 @@ const PostModify = () => {
       fileList: fileList,
       visible: true,
     }
-    axios.put('/api/post', data, {
+    axios.put('/api/posts', data, {
       headers: {
         'Authorization': `Bearer ${jwt}`
       }

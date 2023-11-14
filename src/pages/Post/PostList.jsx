@@ -134,7 +134,7 @@ const PostList = () => {
 
 
   useEffect(() => {
-    axios.get('/api/post')
+    axios.get('/api/posts')
     .then(( {data} ) => {
       if (Array.isArray(data)) {
         setPosts(data);
@@ -144,7 +144,7 @@ const PostList = () => {
     .catch((error) => {
       console.log(error);
     })
-    axios.get('/api/post/series')
+    axios.get('/api/series')
     .then(( {data} ) => {
       if (Array.isArray(data)) {
         setSeriesList(data);

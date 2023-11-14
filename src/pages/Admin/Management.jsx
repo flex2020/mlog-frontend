@@ -156,7 +156,7 @@ const Management = () => {
       const data = {
         series: inputSeries
       };
-      axios.post('/api/admin/series', data, {
+      axios.post('/api/series', data, {
         headers: {
           'Authorization': `Bearer ${jwt}`
         }
@@ -184,7 +184,7 @@ const Management = () => {
 
   const seriesDeleteHandler = (series) => {
     if (!window.confirm(`정말 해당 시리즈를 삭제하시겠습니까?\n삭제하려는 시리즈: ${series}`)) return;
-    axios.delete(`/api/admin/series/${series}`, {
+    axios.delete(`/api/series/${series}`, {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
@@ -229,7 +229,7 @@ const Management = () => {
       originalSeries: orginalSeries,
       newSeries: changeSeries,
     };
-    axios.put('/api/admin/series', data, {
+    axios.put('/api/series', data, {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
@@ -252,7 +252,7 @@ const Management = () => {
     })
   }
   useEffect(() => {
-    axios.get('/api/admin/postList', {
+    axios.get('/api/posts/all', {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
@@ -266,7 +266,7 @@ const Management = () => {
       alert('포스트를 불러오는 중 오류가 발생했습니다.');
     });
 
-    axios.get('/api/admin/seriesList', {
+    axios.get('/api/series', {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
@@ -280,7 +280,7 @@ const Management = () => {
       alert('시리즈를 불러오는 중 오류가 발생했습니다.');
     });
 
-    axios.get('/api/admin/projectList', {
+    axios.get('/api/projects/all', {
       headers: {
         Authorization: `Bearer ${jwt}`
       }

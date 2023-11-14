@@ -81,7 +81,7 @@ const ProjectDetail = () => {
   });
 
   useEffect(() => {
-    axios.get('/api/project/' + id)
+    axios.get('/api/projects/' + id)
     .then(( {data} ) => {
       setProject(data);
     })

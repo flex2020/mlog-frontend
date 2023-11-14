@@ -110,7 +110,7 @@ const ProjectCard = ( {id, duration, thumbnail, title, summary, skills, learning
       <DateContainer>
         <Date>{duration}</Date>
       </DateContainer>
-      <StyledLink to={'/project/' + id}>
+      <StyledLink to={'/projects/' + id}>
       <CardContainer>
         <CardImageContainer>
           <CardImage src={thumbnail} />

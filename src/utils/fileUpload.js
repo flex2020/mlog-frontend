@@ -4,9 +4,9 @@ import Cookies from "js-cookie";
 const fileUpload = async (file, type) => {
   let FILE_API = ''
   if (type === '포스트') {
-    FILE_API = '/api/post/file';
+    FILE_API = '/api/posts/file';
   } else if (type === '프로젝트') {
-    FILE_API = '/api/project/file';
+    FILE_API = '/api/projects/file';
   }
   const jwt = Cookies.get('jwt');
 

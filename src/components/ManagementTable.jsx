@@ -139,18 +139,18 @@ const ModifyButton = styled.button`
 const ManagementTable = ( {type, itemList} ) => {
   const navigate = useNavigate();
   const onClickHandler = (id, type) => {
-    if (type === '포스트') navigate('/post/' + id);
-    else if (type === '프로젝트') navigate('/project/' + id);
+    if (type === '포스트') navigate('/posts/' + id);
+    else if (type === '프로젝트') navigate('/projects/' + id);
   }
   const uploadHandler = () => {
     if (!window.confirm(`${type}를 작성하시겠습니까?`)) return;
-    if (type === '포스트') navigate('/admin/upload/post');
-    else if (type === '프로젝트') navigate('/admin/upload/project');
+    if (type === '포스트') navigate('/admin/upload/posts');
+    else if (type === '프로젝트') navigate('/admin/upload/projects');
   }
   const modifyHandler = (id, type) => {
     if (!window.confirm(`${type}를 수정하시겠습니까?`)) return;
-    if (type === '포스트') navigate('/admin/modify/post/' + id); 
-    else if (type === '프로젝트') navigate('/admin/modify/project/' + id);
+    if (type === '포스트') navigate('/admin/modify/posts/' + id); 
+    else if (type === '프로젝트') navigate('/admin/modify/projects/' + id);
   }
   return (
     <Container>

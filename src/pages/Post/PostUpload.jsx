@@ -83,7 +83,7 @@ const PostUpload = () => {
   const jwt = Cookies.get('jwt');
 
   useEffect(() => {
-    axios.get('/api/admin/seriesList', {
+    axios.get('/api/series', {
       headers: {
         Authorization: `Bearer ${jwt}`
       }
@@ -128,7 +128,7 @@ const PostUpload = () => {
       fileList: fileList,
       visible: true,
     }
-    axios.post('/api/post', data, {
+    axios.post('/api/posts', data, {
       headers: {
         'Authorization': `Bearer ${jwt}`
       }
